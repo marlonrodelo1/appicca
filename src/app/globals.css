@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #2D3142;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  /* Brand */
+  --color-gold: #C8A96E;
+  --color-gold-dark: #B7965A;
+  --color-gold-soft: #FBF7F0;
+  --color-green: #4CAF50;
+  --color-green-dark: #3E8E43;
+  --color-blue: #7BB8D9;
+  --color-ink: #2D3142;
+  --color-muted: #6B7280;
+  --color-line: #EDEFF5;
+  --color-cream: #F7F5F1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- Hover / focus helpers que replican el diseño ---- */
+.dc-navlink { transition: background .18s, color .18s; }
+.dc-navlink:hover { background: #F7F5F1; color: #2D3142 !important; }
+
+.dc-gold { transition: background .2s, box-shadow .2s; }
+.dc-gold:hover { background: #B7965A !important; }
+
+.dc-green { transition: background .2s; }
+.dc-green:hover { background: #409444 !important; }
+
+.dc-ink:hover { background: #1f2330 !important; }
+
+.dc-outline { transition: border-color .2s, color .2s; }
+.dc-outline:hover { border-color: #C8A96E !important; color: #B7965A !important; }
+
+.dc-lift { transition: box-shadow .22s, transform .22s; }
+.dc-lift:hover { box-shadow: 0 14px 34px rgba(45,49,66,.11); transform: translateY(-2px); }
+
+.dc-flink { transition: color .18s; }
+.dc-flink:hover { color: #C8A96E !important; }
+
+.dc-soft:hover { background: rgba(255,255,255,.10) !important; }
+
+.dc-input { transition: border-color .18s; }
+.dc-input:focus { border-color: #C8A96E; }
+.dc-input-green:focus { border-color: #4CAF50; }
