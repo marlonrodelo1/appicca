@@ -1,14 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./supabase/config";
 
 /** Cliente público de solo lectura (sin cookies). Para datos públicos. */
 function publicClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { auth: { persistSession: false } },
-  );
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { persistSession: false },
+  });
 }
 
 export type Evento = {
