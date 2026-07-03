@@ -40,7 +40,7 @@ export default function ActividadesPage() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: 48,
+              fontSize: "clamp(32px, 7vw, 48px)",
               lineHeight: 1.05,
               margin: "0 0 18px",
               maxWidth: 720,
@@ -183,7 +183,8 @@ export default function ActividadesPage() {
             </p>
           </div>
           <ImageSlot
-            label="Foto de una salida de evangelización"
+            label="Equipo en una salida de evangelización"
+            src="/fotos/evangelizacion.jpg"
             height={320}
             radius={20}
           />

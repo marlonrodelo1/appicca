@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
-import { BrandMark } from "./ui";
+import { Logo } from "./Logo";
 
 const LINKS = [
   { href: "/admin", label: "Inicio" },
@@ -42,7 +42,7 @@ export default function AdminNav({ email }: { email: string | null }) {
         }}
       >
         <Link href="/admin" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <BrandMark size={34} />
+          <Logo height={32} />
           <span
             style={{
               fontFamily: "var(--font-display)",

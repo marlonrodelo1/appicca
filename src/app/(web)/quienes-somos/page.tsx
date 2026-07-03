@@ -36,7 +36,7 @@ export default function QuienesSomosPage() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: 48,
+              fontSize: "clamp(32px, 7vw, 48px)",
               lineHeight: 1.05,
               margin: "0 0 18px",
               maxWidth: 760,
@@ -64,7 +64,8 @@ export default function QuienesSomosPage() {
       <Section bg="#FFFFFF">
         <Container max={1120} style={{ padding: "24px 28px 48px" }}>
           <ImageSlot
-            label="Foto de la congregación o del templo"
+            label="Templo de la Iglesia Cuerpo de Cristo"
+            src="/fotos/iglesia-fachada.jpg"
             height={380}
             radius={22}
           />
@@ -122,7 +123,8 @@ export default function QuienesSomosPage() {
             }}
           >
             <ImageSlot
-              label="Foto del equipo pastoral"
+              label="Equipo pastoral acompañando a la comunidad"
+              src="/fotos/equipo-pastoral.jpg"
               height={320}
               radius={20}
             />

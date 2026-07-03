@@ -7,8 +7,9 @@ export const site = {
   location: "Templo · La Cuesta, Tenerife (Islas Canarias)",
   bizumCode: "14506",
   phone: "+34 000 000 000",
+  whatsapp: "34619038221",
   email: "info@cuerpodecristo.es",
-  radioUrl: "https://www.radiosolidariaacentejo.com",
+  radioUrl: "https://www.youtube.com/@RadioSolidariaAcentejo",
   radioName: "Radio Solidaria Acentejo",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=La+Cuesta+Tenerife",

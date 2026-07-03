@@ -70,16 +70,37 @@ export function BrandMark({ size = 42 }: { size?: number }) {
   );
 }
 
-/** Marcador de foto (placeholder) hasta que se suban imágenes reales. */
+/**
+ * Muestra una foto real cuando se pasa `src`; si no, cae al marcador
+ * (placeholder) con el texto `label`.
+ */
 export function ImageSlot({
   label,
+  src,
   height = 320,
   radius = 20,
 }: {
   label: string;
+  src?: string;
   height?: number | string;
   radius?: number;
 }) {
+  if (src) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={label}
+        style={{
+          width: "100%",
+          height,
+          objectFit: "cover",
+          borderRadius: radius,
+          display: "block",
+        }}
+      />
+    );
+  }
   return (
     <div
       style={{

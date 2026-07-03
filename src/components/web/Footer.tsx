@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { NAV, site } from "@/lib/site";
-import { Cross, Heart, Facebook, Instagram, Radio } from "./icons";
+import { Heart, Facebook, Instagram, Radio } from "./icons";
+import { Logo } from "./Logo";
 
 const socialBox: React.CSSProperties = {
   width: 38,
@@ -26,37 +27,8 @@ export default function Footer() {
         }}
       >
         <div style={{ gridColumn: "1 / -1", maxWidth: 340 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 11,
-              marginBottom: 16,
-            }}
-          >
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: "linear-gradient(140deg,#D3B87E,#B7965A)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Cross size={18} color="#fff" stroke={2.1} />
-            </div>
-            <div
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: 20,
-                color: "#fff",
-              }}
-            >
-              {site.name}
-            </div>
+          <div style={{ marginBottom: 16 }}>
+            <Logo height={44} />
           </div>
           <p style={{ fontSize: 13.5, lineHeight: 1.7, margin: "0 0 18px" }}>
             Iglesia Cristiana en Tenerife, parte de la ONG Remar. Fe, comunidad

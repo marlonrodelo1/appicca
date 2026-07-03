@@ -12,13 +12,22 @@ import {
   Users,
 } from "@/components/web/icons";
 import { getNovedades } from "@/lib/data";
+import HeroSlideshow from "@/components/web/HeroSlideshow";
 
 export const revalidate = 300;
+
+/** Foto de portada para cada tarjeta de novedad según su categoría. */
+function fotoNovedad(cat: string): string {
+  const c = cat.toLowerCase();
+  if (c.includes("evangel")) return "/fotos/evangelizacion.jpg";
+  if (c.includes("testimon")) return "/fotos/testimonio.jpg";
+  return "/fotos/reparto-alimentos.jpg";
+}
 
 const heading38: React.CSSProperties = {
   fontFamily: "var(--font-display)",
   fontWeight: 700,
-  fontSize: 38,
+  fontSize: "clamp(28px, 5.5vw, 38px)",
   lineHeight: 1.05,
   margin: 0,
 };
@@ -69,7 +78,7 @@ export default async function Home() {
               style={{
                 fontFamily: "var(--font-display)",
                 fontWeight: 700,
-                fontSize: 58,
+                fontSize: "clamp(38px, 8vw, 58px)",
                 lineHeight: 1.04,
                 letterSpacing: "-.5px",
                 margin: "0 0 22px",
@@ -165,48 +174,7 @@ export default async function Home() {
           </div>
 
           <div style={{ flex: "1 1 400px", minWidth: 300, position: "relative" }}>
-            <ImageSlot
-              label="Foto real — culto o reparto de alimentos"
-              height={460}
-              radius={24}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: -22,
-                left: 24,
-                background: "#fff",
-                border: "1px solid #EDEFF5",
-                borderRadius: 16,
-                padding: "16px 20px",
-                boxShadow: "0 14px 34px rgba(45,49,66,.12)",
-                display: "flex",
-                alignItems: "center",
-                gap: 13,
-                maxWidth: 280,
-              }}
-            >
-              <div
-                style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 12,
-                  background: "#F1F8F1",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                <Basket size={22} color="#4CAF50" stroke={1.7} />
-              </div>
-              <div style={{ fontSize: 12.5, lineHeight: 1.4, color: "#4A4F5E" }}>
-                <strong style={{ color: "#2D3142", fontWeight: 600 }}>
-                  Bolsa de mercado
-                </strong>{" "}
-                para familias cada domingo
-              </div>
-            </div>
+            <HeroSlideshow height={460} radius={24} />
           </div>
         </Container>
       </Section>
@@ -539,7 +507,12 @@ export default async function Home() {
                   overflow: "hidden",
                 }}
               >
-                <ImageSlot label={`Foto — ${n.cat}`} height={200} radius={0} />
+                <ImageSlot
+                  label={n.titulo}
+                  src={fotoNovedad(n.cat)}
+                  height={200}
+                  radius={0}
+                />
                 <div style={{ padding: 24 }}>
                   <div
                     style={{

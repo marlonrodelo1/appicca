@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabase/client";
-import { BrandMark } from "@/components/web/ui";
+import { Logo } from "@/components/web/Logo";
 
 const input: React.CSSProperties = {
   padding: "13px 15px",
@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
             marginBottom: 24,
           }}
         >
-          <BrandMark size={48} />
+          <Logo height={52} />
           <div style={{ textAlign: "center" }}>
             <div
               style={{

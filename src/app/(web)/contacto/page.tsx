@@ -28,7 +28,7 @@ export default function ContactoPage() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: 48,
+              fontSize: "clamp(32px, 7vw, 48px)",
               lineHeight: 1.05,
               margin: "0 0 18px",
             }}
@@ -72,7 +72,8 @@ export default function ContactoPage() {
               }}
             >
               <ImageSlot
-                label="Mapa / ubicación del templo"
+                label="Fachada del templo — La Cuesta, Tenerife"
+                src="/fotos/iglesia-fachada.jpg"
                 height={300}
                 radius={0}
               />

@@ -78,3 +78,15 @@ a {
 .dc-input { transition: border-color .18s; }
 .dc-input:focus { border-color: #C8A96E; }
 .dc-input-green:focus { border-color: #4CAF50; }
+
+/* ---- Responsive: navegación desktop vs móvil ---- */
+.dc-nav-desktop { display: flex; align-items: center; gap: 16px; }
+.dc-nav-mobile { display: none; }
+
+@media (max-width: 920px) {
+  .dc-nav-desktop { display: none; }
+  .dc-nav-mobile { display: flex; }
+}
+
+/* Oculta la barra de scroll de la píldora de navegación (webkit) */
+.dc-navpill::-webkit-scrollbar { display: none; }

@@ -38,7 +38,7 @@ export default function AccionSocialPage() {
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: 48,
+              fontSize: "clamp(32px, 7vw, 48px)",
               lineHeight: 1.05,
               margin: "0 0 18px",
               maxWidth: 720,
@@ -74,7 +74,7 @@ export default function AccionSocialPage() {
             alignItems: "center",
           }}
         >
-          <ImageSlot label="Foto del reparto de alimentos" height={320} radius={20} />
+          <ImageSlot label="Reparto de alimentos a familias" src="/fotos/reparto-alimentos.jpg" height={320} radius={20} />
           <div>
             <div style={pill("#EAF4EA", "#3E8E43")}>Junto a Remar</div>
             <h2
@@ -155,7 +155,7 @@ export default function AccionSocialPage() {
                 Solicitar bolsa de alimento
               </Link>
             </div>
-            <ImageSlot label="Foto de la bolsa de víveres" height={280} radius={18} />
+            <ImageSlot label="Bolsa de víveres para las familias" src="/fotos/bolsa-viveres.jpg" height={280} radius={18} />
           </div>
         </Container>
       </Section>
@@ -215,7 +215,8 @@ export default function AccionSocialPage() {
             </Link>
           </div>
           <ImageSlot
-            label="Material oficial de Remar (consentido)"
+            label="Apadrinamiento de niños — proyecto Remar"
+            src="/fotos/apadrinamiento-ninos.jpg"
             height={300}
             radius={20}
           />

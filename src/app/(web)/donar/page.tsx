@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Container, Section } from "@/components/web/ui";
 import { Cutlery, BasketSimple, Heart } from "@/components/web/icons";
 import BizumCard from "@/components/web/BizumCard";
-import AmountSuggest from "@/components/web/AmountSuggest";
 import ApadrinarForm from "@/components/web/ApadrinarForm";
 
 export const metadata: Metadata = {
@@ -92,8 +91,6 @@ export default function DonarPage() {
           <BizumCard />
 
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-            <AmountSuggest />
-
             <div
               style={{
                 background: "#fff",
