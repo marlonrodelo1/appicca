@@ -8,7 +8,7 @@ import FoodRequestForm from "@/components/web/FoodRequestForm";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Ven a visitarnos. Dirección, teléfono y horarios de culto de la Iglesia Cuerpo de Cristo en La Cuesta, Tenerife. Escríbenos o solicita tu bolsa de alimento.",
+    "Ven a visitarnos. Dirección, teléfono y horarios de culto de la Iglesia Cuerpo de Cristo en La Matanza de Acentejo, Tenerife. Escríbenos o solicita tu bolsa de alimento.",
 };
 
 const info = [
@@ -72,7 +72,7 @@ export default function ContactoPage() {
               }}
             >
               <ImageSlot
-                label="Fachada del templo — La Cuesta, Tenerife"
+                label="Fachada del templo — La Matanza de Acentejo, Tenerife"
                 src="/fotos/iglesia-fachada.jpg"
                 height={300}
                 radius={0}

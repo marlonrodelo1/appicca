@@ -38,7 +38,7 @@ export default function AdminEventos() {
 
   const [title, setTitle] = useState("");
   const [startsAt, setStartsAt] = useState("");
-  const [location, setLocation] = useState("Templo · La Cuesta");
+  const [location, setLocation] = useState("Templo · La Matanza de Acentejo");
   const [mode, setMode] = useState<"presencial" | "online">("presencial");
   const [saving, setSaving] = useState(false);
 

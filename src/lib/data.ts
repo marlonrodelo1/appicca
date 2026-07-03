@@ -28,12 +28,12 @@ export type Novedad = {
 
 // ---- Datos de ejemplo (fallback si no hay Supabase o no hay filas) ----
 export const SAMPLE_EVENTOS: Evento[] = [
-  { dia: "JUE", fecha: "3 JUL", hora: "20:00", titulo: "Culto de oración", lugar: "Templo · La Cuesta", modo: "presencial" },
-  { dia: "DOM", fecha: "6 JUL", hora: "11:30", titulo: "Escuela dominical y culto", lugar: "Templo · La Cuesta", modo: "presencial" },
-  { dia: "DOM", fecha: "6 JUL", hora: "13:00", titulo: "Entrega de víveres", lugar: "Templo · La Cuesta", modo: "presencial" },
+  { dia: "JUE", fecha: "3 JUL", hora: "20:00", titulo: "Culto de oración", lugar: "Templo · La Matanza de Acentejo", modo: "presencial" },
+  { dia: "DOM", fecha: "6 JUL", hora: "11:30", titulo: "Escuela dominical y culto", lugar: "Templo · La Matanza de Acentejo", modo: "presencial" },
+  { dia: "DOM", fecha: "6 JUL", hora: "13:00", titulo: "Entrega de víveres", lugar: "Templo · La Matanza de Acentejo", modo: "presencial" },
   { dia: "JUE", fecha: "10 JUL", hora: "20:00", titulo: "Culto de oración (en directo)", lugar: "Radio Solidaria Acentejo", modo: "online" },
   { dia: "SÁB", fecha: "12 JUL", hora: "10:00", titulo: "Salida de evangelización", lugar: "La Laguna, Tenerife", modo: "presencial" },
-  { dia: "DOM", fecha: "13 JUL", hora: "11:30", titulo: "Culto dominical", lugar: "Templo · La Cuesta", modo: "presencial" },
+  { dia: "DOM", fecha: "13 JUL", hora: "11:30", titulo: "Culto dominical", lugar: "Templo · La Matanza de Acentejo", modo: "presencial" },
   { dia: "SÁB", fecha: "19 JUL", hora: "10:00", titulo: "Evangelización por los pueblos", lugar: "Norte de Tenerife", modo: "presencial" },
   { dia: "DOM", fecha: "20 JUL", hora: "11:30", titulo: "Culto en directo", lugar: "Radio Solidaria Acentejo", modo: "online" },
 ];

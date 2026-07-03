@@ -367,7 +367,7 @@ export default async function Home() {
                     }}
                   >
                     <MapPin size={14} color="#9AA0AC" stroke={1.7} /> Templo · La
-                    Cuesta
+                    Matanza de Acentejo
                   </div>
                 </div>
               </div>

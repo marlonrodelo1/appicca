@@ -4,15 +4,16 @@ export const site = {
   name: "Cuerpo de Cristo",
   legalName: "Iglesia Cristiana Cuerpo de Cristo",
   tagline: "Iglesia Cristiana · Remar",
-  location: "Templo · La Cuesta, Tenerife (Islas Canarias)",
+  location:
+    "Carr. General, 242, 38370 La Matanza de Acentejo, Santa Cruz de Tenerife",
   bizumCode: "14506",
-  phone: "+34 000 000 000",
+  phone: "+34 619 038 221",
   whatsapp: "34619038221",
   email: "info@cuerpodecristo.es",
   radioUrl: "https://www.youtube.com/@RadioSolidariaAcentejo",
   radioName: "Radio Solidaria Acentejo",
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=La+Cuesta+Tenerife",
+    "https://www.google.com/maps/search/?api=1&query=Carr.+General+242+38370+La+Matanza+de+Acentejo+Santa+Cruz+de+Tenerife",
   social: {
     facebook: "#",
     instagram: "#",
