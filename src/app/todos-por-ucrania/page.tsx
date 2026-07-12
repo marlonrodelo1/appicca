@@ -13,6 +13,7 @@ import {
 } from "@/components/web/icons";
 import UcraniaGallery from "@/components/web/UcraniaGallery";
 import { Typewriter } from "@/components/web/Typewriter";
+import EventCountdown from "@/components/web/EventCountdown";
 
 export const metadata: Metadata = {
   title: "Todos con Ucrania",
@@ -154,6 +155,50 @@ const impacto = [
 export default function TodosPorUcraniaPage() {
   return (
     <main style={{ fontFamily: "var(--font-body)", color: INK }}>
+      {/* ===== CABECERA STICKY CON CUENTA ATRÁS ===== */}
+      <header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          background: "rgba(6,25,58,.92)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          borderBottom: "1px solid rgba(255,255,255,.12)",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1220,
+            margin: "0 auto",
+            padding: "5px 12px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 10,
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: ".1em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,.72)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <Clock size={13} color={YELLOW} stroke={2} />
+            Faltan
+          </span>
+          <EventCountdown />
+        </div>
+      </header>
+
       {/* ===== HERO ===== */}
       <Section bg={HERO_BG}>
         <Container
