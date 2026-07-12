@@ -14,6 +14,7 @@ import {
 import UcraniaGallery from "@/components/web/UcraniaGallery";
 import { Typewriter } from "@/components/web/Typewriter";
 import EventCountdown from "@/components/web/EventCountdown";
+import ShareButton from "@/components/web/ShareButton";
 
 export const metadata: Metadata = {
   title: "Todos con Ucrania",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Todos con Ucrania · Evento solidario",
     description:
-      "Una tarde para llevar esperanza a Ucrania. 12 de septiembre de 2026, 18:00 h, Auditorio IES El Chapatal. Entrada libre, donativos voluntarios.",
+      "Únete a la tarde solidaria por Ucrania 💙💛 Tu ayuda puede marcar la diferencia. Sábado 12 de septiembre, 18:00 h · Auditorio IES El Chapatal · Entrada libre.",
     images: [
       {
         url: "/fotos/og-todos-por-ucrania.png",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Todos con Ucrania · Evento solidario",
     description:
-      "Una tarde para llevar esperanza a Ucrania. 12 de septiembre de 2026, 18:00 h, Auditorio IES El Chapatal. Entrada libre, donativos voluntarios.",
+      "Únete a la tarde solidaria por Ucrania 💙💛 Tu ayuda puede marcar la diferencia. Sábado 12 de septiembre, 18:00 h · Auditorio IES El Chapatal · Entrada libre.",
     images: ["/fotos/og-todos-por-ucrania.png"],
   },
 };
@@ -50,8 +51,20 @@ const INK = "#12233F";
 const CREAM = "#F7F5F1";
 const MUTED = "#5A6472";
 
-const PAGE_URL = "cuerpodecristoacentejo.com/todos-por-ucrania";
 const MAPS_URL = "https://maps.google.com/?cid=8693761232558478632";
+
+/* Evento en Google Calendar (12 sep 2026, 18:00–20:00 h Canarias = 17:00–19:00 UTC) */
+const GCAL_URL =
+  "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+  "&text=" +
+  encodeURIComponent("Todos con Ucrania · Evento solidario") +
+  "&dates=20260912T170000Z/20260912T190000Z" +
+  "&details=" +
+  encodeURIComponent(
+    "Evento solidario a favor de la ayuda humanitaria de Remar en Ucrania. Entrada libre, donativos voluntarios. Más info: https://cuerpodecristoacentejo.com/todos-por-ucrania",
+  ) +
+  "&location=" +
+  encodeURIComponent("Auditorio IES El Chapatal, Santa Cruz de Tenerife");
 
 /* Fondo del hero: foto real de un voluntario de Remar + overlay azul→verde
    (oscurecido para que el texto blanco/amarillo se lea) */
@@ -59,16 +72,53 @@ const HERO_BG =
   "linear-gradient(168deg, rgba(3,44,116,.84) 0%, rgba(8,58,92,.72) 48%, rgba(18,78,42,.9) 100%)," +
   " url('/fotos/hero-ucrania.jpg') center 30% / cover no-repeat";
 
-function Remar({ children = "Remar" }: { children?: string }) {
+function Remar({
+  children = "Remar",
+  onDark = false,
+}: {
+  children?: string;
+  onDark?: boolean;
+}) {
   return (
     <a
       href="https://remar.org"
       target="_blank"
       rel="noopener noreferrer"
-      style={{ color: BLUE, fontWeight: 600, textDecoration: "none" }}
+      style={{
+        color: onDark ? "#8FC7F2" : BLUE,
+        fontWeight: 600,
+        textDecoration: "underline",
+        textUnderlineOffset: "3px",
+        textDecorationThickness: "1.5px",
+      }}
     >
       {children}
     </a>
+  );
+}
+
+/* Logo de Google Calendar (aproximación en SVG con los colores de Google) */
+function GoogleCalendarIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
+      <rect x="10" y="10" width="28" height="28" rx="3" fill="#fff" stroke="#DADCE0" strokeWidth="0.6" />
+      <path fill="#4285F4" d="M10 14a4 4 0 0 1 4-4h4v8h-8z" />
+      <path fill="#EA4335" d="M30 10h4a4 4 0 0 1 4 4v4h-8z" />
+      <path fill="#34A853" d="M38 30v4a4 4 0 0 1-4 4h-4v-8z" />
+      <path fill="#FBBC05" d="M18 38h-4a4 4 0 0 1-4-4v-4h8z" />
+      <rect x="18" y="18" width="12" height="12" fill="#fff" />
+      <text
+        x="24"
+        y="29.5"
+        textAnchor="middle"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontWeight="700"
+        fontSize="12"
+        fill="#4285F4"
+      >
+        31
+      </text>
+    </svg>
   );
 }
 
@@ -194,31 +244,39 @@ export default function TodosPorUcraniaPage() {
           style={{
             maxWidth: 1220,
             margin: "0 auto",
-            padding: "5px 12px",
+            padding: "5px 14px",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            gap: 10,
+            justifyContent: "space-between",
+            gap: 12,
             flexWrap: "wrap",
           }}
         >
-          <span
+          <EventCountdown />
+          <a
+            href={GCAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Guardar el evento en Google Calendar"
+            title="Guardar en Google Calendar"
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: 6,
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,.72)",
+              background: "#fff",
+              padding: "6px 12px",
+              borderRadius: 999,
+              textDecoration: "none",
               whiteSpace: "nowrap",
+              boxShadow: "0 2px 8px rgba(0,0,0,.18)",
             }}
           >
-            <Clock size={13} color={YELLOW} stroke={2} />
-            Faltan
-          </span>
-          <EventCountdown />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/fotos/google-calendar-logo.png"
+              alt="Google Calendar"
+              style={{ height: 20, width: "auto", display: "block" }}
+            />
+          </a>
         </div>
       </header>
 
@@ -582,7 +640,7 @@ export default function TodosPorUcraniaPage() {
                 Miguel Díez
               </div>
               <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "rgba(255,255,255,.88)" }}>
-                Presidente de <Remar>Remar</Remar>, junto a voluntarias activas
+                Presidente de <Remar onDark>Remar</Remar>, junto a voluntarias activas
                 en Ucrania que compartirán su testimonio.
               </p>
             </div>
@@ -681,9 +739,9 @@ export default function TodosPorUcraniaPage() {
               </div>
             ))}
           </div>
-          <p style={{ textAlign: "center", marginTop: 26, fontSize: 14, color: "rgba(255,255,255,.8)" }}>
-            Comparte esta página: <strong>{PAGE_URL}</strong>
-          </p>
+          <div style={{ textAlign: "center", marginTop: 30 }}>
+            <ShareButton />
+          </div>
         </Container>
       </Section>
 
@@ -713,7 +771,7 @@ export default function TodosPorUcraniaPage() {
                 margin: "0 auto",
               }}
             >
-              Los fondos sostienen la labor de <Remar>Remar</Remar> SOS sobre el
+              Los fondos sostienen la labor de <Remar onDark>Remar</Remar> SOS sobre el
               terreno: comedores sociales, reparto de alimentos, ropa de abrigo y
               acogida a familias desplazadas en Kiev, Lviv, Rivne, Chernivtsi y
               Mostyska.
@@ -797,26 +855,57 @@ export default function TodosPorUcraniaPage() {
           <p style={{ fontSize: 16.5, color: MUTED, margin: "0 0 24px" }}>
             Santa Cruz de Tenerife · Sábado 12 de septiembre de 2026, 18:00 h
           </p>
-          <a
-            href={MAPS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 9,
-              background: INK,
-              color: "#fff",
-              fontWeight: 600,
-              fontSize: 15,
-              padding: "13px 24px",
-              borderRadius: 12,
-              textDecoration: "none",
+              display: "flex",
+              gap: 12,
+              justifyContent: "center",
+              flexWrap: "wrap",
             }}
           >
-            <Directions size={18} color="#fff" stroke={1.9} />
-            Ver ubicación en Google Maps
-          </a>
+            <a
+              href={GCAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "#fff",
+                color: INK,
+                fontWeight: 600,
+                fontSize: 15,
+                padding: "12px 22px",
+                borderRadius: 12,
+                textDecoration: "none",
+                border: "1px solid #E4E0D6",
+                boxShadow: "0 6px 18px rgba(6,20,45,.08)",
+              }}
+            >
+              <GoogleCalendarIcon size={20} />
+              Añadir a Google Calendar
+            </a>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 9,
+                background: INK,
+                color: "#fff",
+                fontWeight: 600,
+                fontSize: 15,
+                padding: "13px 24px",
+                borderRadius: 12,
+                textDecoration: "none",
+              }}
+            >
+              <Directions size={18} color="#fff" stroke={1.9} />
+              Ver ubicación en Google Maps
+            </a>
+          </div>
         </Container>
       </Section>
 
