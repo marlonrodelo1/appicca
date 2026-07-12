@@ -190,7 +190,7 @@ const detalles = [
     icon: <Heart size={22} color={BLUE} stroke={1.8} />,
     label: "Cómo se entra",
     value: "Entrada libre",
-    sub: "Donativos voluntarios para la ayuda humanitaria",
+    sub: "Hasta completar aforo · Donativos voluntarios",
   },
   {
     icon: (
@@ -213,7 +213,7 @@ const detalles = [
     ),
     label: "Aparcamiento",
     value: "Gratuito",
-    sub: "Para todos los asistentes al evento",
+    sub: "Hasta completar aforo · Para los asistentes",
   },
 ];
 
