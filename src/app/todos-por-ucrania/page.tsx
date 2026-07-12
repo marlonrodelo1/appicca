@@ -142,6 +142,29 @@ const detalles = [
     value: "Entrada libre",
     sub: "Donativos voluntarios para la ayuda humanitaria",
   },
+  {
+    icon: (
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={BLUE}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M5 11l1.4-4.2A2 2 0 0 1 8.3 5.4h7.4a2 2 0 0 1 1.9 1.4L19 11" />
+        <path d="M3 11h18v5a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1v-1H6.5v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5Z" />
+        <circle cx="7" cy="14.5" r="1" />
+        <circle cx="17" cy="14.5" r="1" />
+      </svg>
+    ),
+    label: "Aparcamiento",
+    value: "Gratuito",
+    sub: "Para todos los asistentes al evento",
+  },
 ];
 
 /* Contexto: a dónde va la ayuda (datos reales de Remar) */
