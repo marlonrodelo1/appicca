@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "@/components/web/icons";
 import UcraniaGallery from "@/components/web/UcraniaGallery";
+import { Typewriter } from "@/components/web/Typewriter";
 
 export const metadata: Metadata = {
   title: "Todos con Ucrania",
@@ -21,7 +22,21 @@ export const metadata: Metadata = {
     title: "Todos con Ucrania · Evento solidario",
     description:
       "Una tarde para llevar esperanza a Ucrania. 12 de septiembre de 2026, 18:00 h, Auditorio IES El Chapatal. Entrada libre, donativos voluntarios.",
-    images: ["/fotos/ucrania/uc-1.jpg"],
+    images: [
+      {
+        url: "/fotos/og-todos-por-ucrania.png",
+        width: 1200,
+        height: 630,
+        alt: "Todos con Ucrania · Remar",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Todos con Ucrania · Evento solidario",
+    description:
+      "Una tarde para llevar esperanza a Ucrania. 12 de septiembre de 2026, 18:00 h, Auditorio IES El Chapatal. Entrada libre, donativos voluntarios.",
+    images: ["/fotos/og-todos-por-ucrania.png"],
   },
 };
 
@@ -35,8 +50,13 @@ const CREAM = "#F7F5F1";
 const MUTED = "#5A6472";
 
 const PAGE_URL = "cuerpodecristoacentejo.com/todos-por-ucrania";
-const MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=IES%20El%20Chapatal%20Santa%20Cruz%20de%20Tenerife";
+const MAPS_URL = "https://maps.google.com/?cid=8693761232558478632";
+
+/* Fondo del hero: foto real de un voluntario de Remar + overlay azul→verde
+   (oscurecido para que el texto blanco/amarillo se lea) */
+const HERO_BG =
+  "linear-gradient(168deg, rgba(3,44,116,.84) 0%, rgba(8,58,92,.72) 48%, rgba(18,78,42,.9) 100%)," +
+  " url('/fotos/hero-ucrania.jpg') center 30% / cover no-repeat";
 
 function Remar({ children = "Remar" }: { children?: string }) {
   return (
@@ -135,9 +155,7 @@ export default function TodosPorUcraniaPage() {
   return (
     <main style={{ fontFamily: "var(--font-body)", color: INK }}>
       {/* ===== HERO ===== */}
-      <Section
-        bg={`radial-gradient(120% 90% at 50% -10%, #0A6ED6 0%, ${BLUE} 45%, ${BLUE_D} 100%)`}
-      >
+      <Section bg={HERO_BG}>
         <Container
           max={960}
           style={{
@@ -183,7 +201,7 @@ export default function TodosPorUcraniaPage() {
               letterSpacing: "-0.5px",
             }}
           >
-            Todos con Ucrania
+            Todos con <span style={{ color: YELLOW }}>Ucrania</span>
           </h1>
           <div
             style={{
@@ -197,13 +215,29 @@ export default function TodosPorUcraniaPage() {
           <p
             style={{
               fontSize: "clamp(18px,3.4vw,23px)",
-              fontWeight: 600,
-              margin: "0 0 6px",
+              fontWeight: 700,
+              margin: "0 0 8px",
               textTransform: "uppercase",
               letterSpacing: ".5px",
+              lineHeight: 1.2,
+              minHeight: "2.6em",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
             }}
           >
-            Tu ayuda puede marcar la diferencia
+            <Typewriter
+              words={[
+                "Tu ayuda puede marcar la diferencia",
+                "Cada gesto de solidaridad cuenta",
+                "Juntos llevamos esperanza a Ucrania",
+              ]}
+              speed={70}
+              deleteSpeed={35}
+              delayBetweenWords={2000}
+              cursorChar="|"
+            />
           </p>
           <p
             style={{
@@ -484,29 +518,22 @@ export default function TodosPorUcraniaPage() {
                 en Ucrania que compartirán su testimonio.
               </p>
             </div>
-            <div
-              style={{
-                display: "flex",
-                gap: 12,
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              {["/fotos/ucrania/uc-5.jpg", "/fotos/ucrania/uc-4.jpg"].map((s) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={s}
-                  src={s}
-                  alt="Voluntarios de Remar en Ucrania"
-                  style={{
-                    width: 130,
-                    height: 160,
-                    objectFit: "cover",
-                    borderRadius: 16,
-                    border: "4px solid rgba(255,255,255,.9)",
-                  }}
-                />
-              ))}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/fotos/miguel-diez.jpg"
+                alt="Miguel Díez, presidente de Remar"
+                style={{
+                  width: 210,
+                  maxWidth: "100%",
+                  aspectRatio: "4 / 5",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  borderRadius: 18,
+                  border: "5px solid rgba(255,255,255,.92)",
+                  boxShadow: "0 16px 40px rgba(0,0,0,.32)",
+                }}
+              />
             </div>
           </div>
         </Container>

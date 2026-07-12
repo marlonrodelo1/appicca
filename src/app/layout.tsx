@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cuerpodecristo.es"),
+  metadataBase: new URL("https://cuerpodecristoacentejo.com"),
   title: {
     default: "Iglesia Cristiana Cuerpo de Cristo · Tenerife",
     template: "%s · Cuerpo de Cristo",
@@ -20,10 +20,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
+    url: "/",
     title: "Iglesia Cristiana Cuerpo de Cristo · Tenerife",
     description:
       "Fe que se convierte en ayuda real. Cultos, acción social y reparto de alimentos en Tenerife, junto a la ONG Remar.",
     siteName: "Cuerpo de Cristo",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1000,
+        height: 500,
+        alt: "Iglesia Cristiana Cuerpo de Cristo · Tenerife",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Iglesia Cristiana Cuerpo de Cristo · Tenerife",
+    description:
+      "Fe que se convierte en ayuda real. Cultos, acción social y reparto de alimentos en Tenerife, junto a la ONG Remar.",
+    images: ["/logo.png"],
   },
 };
 
