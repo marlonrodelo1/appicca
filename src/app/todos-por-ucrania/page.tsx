@@ -15,6 +15,7 @@ import UcraniaGallery from "@/components/web/UcraniaGallery";
 import { Typewriter } from "@/components/web/Typewriter";
 import EventCountdown from "@/components/web/EventCountdown";
 import ShareButton from "@/components/web/ShareButton";
+import DonateButton from "@/components/web/DonateButton";
 
 export const metadata: Metadata = {
   title: "Todos con Ucrania",
@@ -264,7 +265,7 @@ export default function TodosPorUcraniaPage() {
               alignItems: "center",
               background: "#fff",
               padding: "6px 12px",
-              borderRadius: 999,
+              borderRadius: 10,
               textDecoration: "none",
               whiteSpace: "nowrap",
               boxShadow: "0 2px 8px rgba(0,0,0,.18)",
@@ -378,11 +379,18 @@ export default function TodosPorUcraniaPage() {
             Una tarde solidaria a favor de la ayuda humanitaria en Ucrania.
           </p>
 
-          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 12 }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 12,
+            }}
+          >
             {[
               { ic: <Clock size={17} color={INK} stroke={2} />, t: "Sáb 12 sep 2026 · 18:00 h" },
               { ic: <MapPin size={17} color={INK} stroke={2} />, t: "Auditorio IES El Chapatal" },
-              { ic: <Heart size={17} color={INK} stroke={2} />, t: "Entrada libre" },
             ].map((c) => (
               <span
                 key={c.t}
@@ -402,6 +410,23 @@ export default function TodosPorUcraniaPage() {
                 {c.t}
               </span>
             ))}
+            <DonateButton
+              label="Donar"
+              motivo="Todos con Ucrania · Remar"
+              accent={GREEN}
+              variant="solid"
+              radius={10}
+              iconSize={17}
+              pulse
+              presets={[10, 25, 50, 100, 250]}
+              logoSrc="/fotos/remar-logo.png"
+              style={{
+                padding: "10px 30px",
+                fontSize: 14,
+                minWidth: 158,
+                justifyContent: "center",
+              }}
+            />
           </div>
         </Container>
       </Section>
@@ -739,7 +764,24 @@ export default function TodosPorUcraniaPage() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: 30 }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 14,
+              marginTop: 30,
+            }}
+          >
+            <DonateButton
+              label="Donar ahora"
+              motivo="Todos con Ucrania · Remar"
+              accent={GREEN}
+              variant="light"
+              presets={[10, 25, 50, 100, 250]}
+              logoSrc="/fotos/remar-logo.png"
+            />
             <ShareButton />
           </div>
         </Container>

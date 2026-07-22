@@ -3,6 +3,7 @@ import { Container, Section } from "@/components/web/ui";
 import { Cutlery, BasketSimple, Heart } from "@/components/web/icons";
 import BizumCard from "@/components/web/BizumCard";
 import ApadrinarForm from "@/components/web/ApadrinarForm";
+import DonateButton from "@/components/web/DonateButton";
 
 export const metadata: Metadata = {
   title: "Dona por Bizum",
@@ -91,6 +92,45 @@ export default function DonarPage() {
           <BizumCard />
 
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+            {/* Donar online con tarjeta / Apple Pay / Google Pay */}
+            <div
+              style={{
+                background: "#fff",
+                border: "1px solid #EDEFF5",
+                borderRadius: 22,
+                padding: 32,
+              }}
+            >
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 600,
+                  fontSize: 24,
+                  margin: "0 0 8px",
+                }}
+              >
+                Donar online
+              </h3>
+              <p
+                style={{
+                  fontSize: 14.5,
+                  lineHeight: 1.6,
+                  color: "#6B7280",
+                  margin: "0 0 20px",
+                }}
+              >
+                Con tarjeta, Apple Pay o Google Pay. Rápido y seguro, sin salir
+                de la página.
+              </p>
+              <DonateButton
+                label="Donar con tarjeta"
+                motivo="Donativo · Iglesia Cuerpo de Cristo"
+                accent="#2E7D1F"
+                presets={[5, 10, 20, 50, 100]}
+                style={{ width: "100%", justifyContent: "center" }}
+              />
+            </div>
+
             <div
               style={{
                 background: "#fff",
