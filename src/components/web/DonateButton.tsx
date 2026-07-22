@@ -31,7 +31,7 @@ type Props = {
   style?: React.CSSProperties;
 };
 
-const MIN = 2;
+const MIN = 1;
 const MAX = 5000;
 
 export default function DonateButton({

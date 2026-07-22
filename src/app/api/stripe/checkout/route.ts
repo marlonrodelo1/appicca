@@ -2,7 +2,7 @@ import type { NextRequest } from "next/server";
 import { stripe } from "@/lib/stripe-server";
 
 // Importe mínimo/máximo aceptado (en euros) para evitar valores absurdos.
-const MIN_EUR = 2;
+const MIN_EUR = 1;
 const MAX_EUR = 5000;
 
 export async function POST(req: NextRequest) {
@@ -35,6 +35,10 @@ export async function POST(req: NextRequest) {
       ui_mode: "embedded_page",
       mode: "payment",
       submit_type: "donate",
+      // Pide el nombre del donante (opcional), ademas del correo.
+      name_collection: {
+        individual: { enabled: true, optional: true },
+      },
       line_items: [
         {
           quantity: 1,
