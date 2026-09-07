@@ -34,28 +34,33 @@ const MUTED = "#5A6472";
  * sin fotos pesadas: entra directo a elegir el importe para que cargue
  * rápido con la cobertura del auditorio.
  */
-const FONDO = `linear-gradient(168deg, ${BLUE_D} 0%, ${BLUE} 100%)`;
-
 export default function DonarUcraniaPage() {
   return (
     <>
-      {/* El degradado va también en el body: si no, al hacer scroll de rebote
-          en el móvil asoma una banda blanca por debajo. */}
+      {/* Fondo en el elemento raíz: el navegador lo propaga al lienzo entero,
+          así cubre también el rebote del scroll sin banda blanca.
+
+          Aquí NO se usa dvh/vh ni position:fixed a propósito. En Safari de iOS
+          la barra de direcciones se encoge sola nada más cargar; cualquier cosa
+          medida contra la altura de la ventana se recalcula en ese momento y la
+          página pega el tirón hacia arriba. Sin esas unidades no hay nada que
+          reaccione a la barra, y el contenido se queda quieto. */}
       <style>{`
-        html, body { background: ${BLUE_D}; }
-        body::before {
-          content: "";
-          position: fixed;
-          inset: 0;
-          background: ${FONDO};
-          z-index: -1;
+        html {
+          /* El color de respaldo es el del FINAL del degradado: así, si la
+             ventana es más alta que la página, lo que sigue por debajo empalma
+             sin que se vea una costura. */
+          background-color: ${BLUE};
+          background-image: linear-gradient(168deg, ${BLUE_D} 0%, ${BLUE} 100%);
+          background-repeat: no-repeat;
+          /* globals.css pone scroll-behavior:smooth para toda la web. Aquí
+             estorba: cualquier reajuste de scroll del navegador al abrir el
+             enlace se ve como un deslizamiento raro hacia arriba. */
+          scroll-behavior: auto;
         }
+        body { background: transparent; }
       `}</style>
 
-      {/* Nada de minHeight + justifyContent:center: en iOS la caja de 100dvh
-          mide más que lo visible con la barra del navegador, el centrado empuja
-          el contenido hacia arriba y los logos quedan cortados y fuera de
-          alcance. Anclado arriba, lo primero que se ve es siempre la cabecera. */}
       <main
         style={{
           fontFamily: "var(--font-body)",
