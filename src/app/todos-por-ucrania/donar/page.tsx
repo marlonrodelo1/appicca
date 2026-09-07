@@ -37,32 +37,37 @@ const MUTED = "#5A6472";
 export default function DonarUcraniaPage() {
   return (
     <>
-      {/* Fondo en el elemento raíz: el navegador lo propaga al lienzo entero,
-          así cubre también el rebote del scroll sin banda blanca.
+      {/* Pantalla tipo app: el DOCUMENTO no puede hacer scroll (overflow
+          hidden en html y body). Así, haga lo que haga Safari al abrir el
+          enlace — encoger su barra, restaurar una posición anterior, enfocar
+          algo — no hay nada que desplazar: la cabecera se queda siempre a la
+          vista. Si en un móvil muy pequeño no cupiera todo, el scroll ocurre
+          DENTRO de <main>, sin mover la página.
 
-          Aquí NO se usa dvh/vh ni position:fixed a propósito. En Safari de iOS
-          la barra de direcciones se encoge sola nada más cargar; cualquier cosa
-          medida contra la altura de la ventana se recalcula en ese momento y la
-          página pega el tirón hacia arriba. Sin esas unidades no hay nada que
-          reaccione a la barra, y el contenido se queda quieto. */}
+          Tampoco se usa dvh/vh ni position:fixed: reaccionan a la barra del
+          navegador y provocaban el tirón. El degradado va en el elemento raíz,
+          que el navegador propaga al lienzo entero (cubre también el rebote). */}
       <style>{`
         html {
-          /* El color de respaldo es el del FINAL del degradado: así, si la
-             ventana es más alta que la página, lo que sigue por debajo empalma
-             sin que se vea una costura. */
           background-color: ${BLUE};
           background-image: linear-gradient(168deg, ${BLUE_D} 0%, ${BLUE} 100%);
           background-repeat: no-repeat;
-          /* globals.css pone scroll-behavior:smooth para toda la web. Aquí
-             estorba: cualquier reajuste de scroll del navegador al abrir el
-             enlace se ve como un deslizamiento raro hacia arriba. */
-          scroll-behavior: auto;
+          scroll-behavior: auto; /* anula el smooth global: aquí se vería como un deslizamiento raro */
+          height: 100%;
+          overflow: hidden;
         }
-        body { background: transparent; }
+        body {
+          background: transparent;
+          height: 100%;
+          overflow: hidden;
+        }
       `}</style>
 
       <main
         style={{
+          height: "100%",
+          overflowY: "auto",
+          overscrollBehavior: "contain",
           fontFamily: "var(--font-body)",
           padding: "14px 16px 24px",
           display: "flex",
