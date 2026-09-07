@@ -102,8 +102,8 @@ export default function DonatePanel({
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3,1fr)",
-          gap: 10,
-          marginBottom: 12,
+          gap: 9,
+          marginBottom: 10,
         }}
       >
         {presets.map((p) => {
@@ -118,13 +118,13 @@ export default function DonatePanel({
                 setError(null);
               }}
               style={{
-                padding: "18px 0",
+                padding: "15px 0",
                 borderRadius: 12,
                 border: active ? `2px solid ${accent}` : "1.5px solid #E4E0D6",
                 background: active ? `${accent}12` : "#fff",
                 color: active ? accent : "#12233F",
                 fontWeight: 700,
-                fontSize: 19,
+                fontSize: 18,
                 cursor: "pointer",
                 fontFamily: "var(--font-body)",
               }}
@@ -143,7 +143,7 @@ export default function DonatePanel({
           border: "1.5px solid #E4E0D6",
           borderRadius: 12,
           padding: "0 14px",
-          marginBottom: error ? 8 : 18,
+          marginBottom: error ? 8 : 14,
         }}
       >
         <span style={{ color: "#5A6472", fontSize: 15 }}>Otro:</span>
@@ -161,7 +161,7 @@ export default function DonatePanel({
             border: "none",
             outline: "none",
             fontSize: 16,
-            padding: "16px 0",
+            padding: "13px 0",
             background: "transparent",
             fontFamily: "var(--font-body)",
           }}
@@ -180,7 +180,7 @@ export default function DonatePanel({
         onClick={goToPay}
         style={{
           width: "100%",
-          padding: "18px 0",
+          padding: "16px 0",
           borderRadius: 12,
           border: "none",
           background: accent,
@@ -197,11 +197,11 @@ export default function DonatePanel({
 
       <p
         style={{
-          fontSize: 12,
+          fontSize: 11.5,
           color: "#8A8F98",
           textAlign: "center",
-          margin: "14px 0 0",
-          lineHeight: 1.5,
+          margin: "11px 0 0",
+          lineHeight: 1.45,
         }}
       >
         Pago seguro con Stripe · Apple&nbsp;Pay · Google&nbsp;Pay · tarjeta
