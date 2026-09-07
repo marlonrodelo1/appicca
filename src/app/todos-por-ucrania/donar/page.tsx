@@ -52,15 +52,17 @@ export default function DonarUcraniaPage() {
         }
       `}</style>
 
+      {/* Nada de minHeight + justifyContent:center: en iOS la caja de 100dvh
+          mide más que lo visible con la barra del navegador, el centrado empuja
+          el contenido hacia arriba y los logos quedan cortados y fuera de
+          alcance. Anclado arriba, lo primero que se ve es siempre la cabecera. */}
       <main
         style={{
-          minHeight: "100dvh",
           fontFamily: "var(--font-body)",
           padding: "14px 16px 24px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
         }}
       >
         {/* Cabecera: logos + título */}
