@@ -37,37 +37,34 @@ const MUTED = "#5A6472";
 export default function DonarUcraniaPage() {
   return (
     <>
-      {/* Pantalla tipo app: el DOCUMENTO no puede hacer scroll (overflow
-          hidden en html y body). Así, haga lo que haga Safari al abrir el
-          enlace — encoger su barra, restaurar una posición anterior, enfocar
-          algo — no hay nada que desplazar: la cabecera se queda siempre a la
-          vista. Si en un móvil muy pequeño no cupiera todo, el scroll ocurre
-          DENTRO de <main>, sin mover la página.
-
-          Tampoco se usa dvh/vh ni position:fixed: reaccionan a la barra del
-          navegador y provocaban el tirón. El degradado va en el elemento raíz,
-          que el navegador propaga al lienzo entero (cubre también el rebote). */}
+      {/* Documento NORMAL, sin trucos: nada de dvh/vh, position:fixed ni
+          overflow:hidden. Todo eso reaccionaba a las barras de Safari/Chrome y
+          provocaba tirones o dejaba la página atascada. El degradado va en el
+          elemento raíz, que el navegador propaga al lienzo entero (cubre
+          también el rebote del scroll sin banda blanca). */}
       <style>{`
         html {
           background-color: ${BLUE};
           background-image: linear-gradient(168deg, ${BLUE_D} 0%, ${BLUE} 100%);
           background-repeat: no-repeat;
           scroll-behavior: auto; /* anula el smooth global: aquí se vería como un deslizamiento raro */
-          height: 100%;
-          overflow: hidden;
         }
-        body {
-          background: transparent;
-          height: 100%;
-          overflow: hidden;
-        }
+        body { background: transparent; }
       `}</style>
+
+      {/* Chrome (sobre todo en iPhone) recuerda dónde te quedaste la última
+          vez que abriste esta URL y te devuelve ahí tras pintar la página: se
+          veía todo y acto seguido saltaba hasta la tarjeta de importes. Esta
+          pantalla siempre debe empezar por la cabecera, así que se desactiva
+          esa restauración. */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `try{history.scrollRestoration="manual";window.scrollTo(0,0);addEventListener("pageshow",function(){window.scrollTo(0,0)})}catch(e){}`,
+        }}
+      />
 
       <main
         style={{
-          height: "100%",
-          overflowY: "auto",
-          overscrollBehavior: "contain",
           fontFamily: "var(--font-body)",
           padding: "14px 16px 24px",
           display: "flex",
